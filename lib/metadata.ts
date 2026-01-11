@@ -56,7 +56,10 @@ export function createMetadata({
     }
   }
 
-  const openGraphConfig: Metadata["openGraph"] = {
+  const openGraphConfig: NonNullable<Metadata["openGraph"]> & {
+    publishedTime?: string;
+    modifiedTime?: string;
+  } = {
     type: ogType,
     siteName: BRAND.name,
     title: fullTitle,
@@ -71,15 +74,9 @@ export function createMetadata({
       },
     ],
     locale: inLanguage,
+    ...(datePublished && { publishedTime: datePublished }),
+    ...(dateModified && { modifiedTime: dateModified }),
   };
-
-  // Add datePublished and dateModified to OpenGraph if provided
-  if (datePublished) {
-    openGraphConfig.publishedTime = datePublished;
-  }
-  if (dateModified) {
-    openGraphConfig.modifiedTime = dateModified;
-  }
 
   const metadata: Metadata = {
     metadataBase: new URL(BRAND.url),
@@ -117,4 +114,3 @@ export function createMetadata({
 
   return metadata;
 }
-
