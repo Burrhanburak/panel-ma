@@ -78,7 +78,7 @@ const outcomeEvents = [
 
 export default function BentoGrid() {
   return (
-    <section className="bg-black py-8 sm:py-16 lg:py-24">
+    <section className="bg-black py-8 sm:py-16 lg:py-24 px-2">
       <motion.div
         className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-6 sm:grid-cols-1 sm:px-6 md:grid-cols-2 md:gap-7 lg:grid-cols-2 lg:gap-8 lg:px-10 xl:grid-cols-2 2xl:grid-cols-2"
         initial="hidden"
@@ -89,7 +89,7 @@ export default function BentoGrid() {
         {/* 1) HERO CARD (gif/video) */}
         <motion.div
           variants={cardVariants}
-          className="bg-card border border-border flex flex-col overflow-hidden rounded-xl pb-6 text-white sm:col-span-2"
+          className="bg-card border border-white/5 flex flex-col overflow-hidden rounded-xl pb-6 text-white sm:col-span-2"
         >
           <div className="group relative flex items-center justify-center overflow-hidden p-6" />
           <Image
@@ -114,7 +114,7 @@ export default function BentoGrid() {
         {/* 2) ROLE-BASED WORKSPACE + APPROVALS */}
         <motion.div
           variants={cardVariants}
-          className="bg-card border border-border flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
         >
           <div className="flex h-61.5 flex-1 items-center justify-center">
             <div className="relative w-full max-w-72 space-y-4">
@@ -173,7 +173,7 @@ export default function BentoGrid() {
         {/* 3) SECURITY / COMPLIANCE */}
         <motion.div
           variants={cardVariants}
-          className="bg-card border border-border flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
         >
           <div className="flex h-61.5 flex-1 items-center justify-center">
             <div className="relative w-full max-w-72 space-y-4 px-4">
@@ -228,7 +228,7 @@ export default function BentoGrid() {
         {/* 4) MODULES / INDUSTRIES (badges) */}
         <motion.div
           variants={cardVariants}
-          className="bg-card border border-border flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
         >
           <div className="relative flex h-64 items-center justify-center px-6">
             {/* Concentric rings */}
@@ -299,7 +299,7 @@ export default function BentoGrid() {
         {/* 5) WORKFLOW -> OUTCOMES (marquee) */}
         <motion.div
           variants={cardVariants}
-          className="bg-card border border-border flex flex-col gap-6 overflow-hidden rounded-xl pb-6 text-white"
+          className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl pb-6 text-white"
         >
           <div className="relative isolate flex min-h-97 flex-1 items-end">
             {/* Top activity marquee */}

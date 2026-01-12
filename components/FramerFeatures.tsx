@@ -16,15 +16,34 @@ export function Features() {
             Everything your custom panel needs
           </h2>
           <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-            We don’t ship generic software. We design admin panels, dashboards,
-            and workflows tailored to how your business actually operates.
+            We don&apos;t ship generic software. We design admin panels,
+            dashboards, and workflows tailored to how your business actually
+            operates.
           </p>
+          {/* SEO H2s - visible but subtle for SEO */}
+          <div className="mt-4 flex flex-wrap gap-x-3 justify-center lg:justify-start gap-y-1 items-center text-xs">
+            <h2 className="font-medium text-zinc-500/70">
+              Practice Management System
+            </h2>
+            <span className="text-zinc-600">•</span>
+            <h2 className="font-medium text-zinc-500/70">
+              Clinic Management System
+            </h2>
+            <span className="text-zinc-600">•</span>
+            <h2 className="font-medium text-zinc-500/70">
+              HR Management System
+            </h2>
+            <span className="text-zinc-600">•</span>
+            <h3 className="font-medium text-zinc-500/70">
+              Custom Admin Panel Software
+            </h3>
+          </div>
         </div>
 
         {/* USP minis */}
         <section
           aria-label="Panel capabilities"
-          className="w-full grid gap-8 md:gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4"
+          className="w-full grid gap-8 md:gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2"
         >
           {USP_ITEMS.map((usp) => (
             <div

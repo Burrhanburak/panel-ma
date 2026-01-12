@@ -20,17 +20,17 @@ import {
   Dumbbell,
   UtensilsCrossed,
   Scissors,
-  TrendingUp,
 } from "lucide-react";
 import { SOLUTIONS_ALL } from "@/data/solutions";
 import { createMetadata } from "@/lib/metadata";
+import { PageJsonLd } from "@/components/PageJsonLd";
 
 export const metadata: Metadata = createMetadata({
   title: "Management Systems We Build",
   description:
     "Custom management systems and admin panels built around your workflow — scheduling, approvals, uploads, exports, roles, and reporting. Appointment, clinic, employee, scholarship, and practice management systems.",
   keywords:
-    "management systems, custom admin panel, appointment management, clinic management, employee management, scholarship management, practice management, workflow automation, custom dashboard",
+    "content management system, employee management system, project management system, custom management system, crm management system, clinic management system, practice management system, hr management system, inventory management system, patient management system, maintenance management system, document management system, vendor management system, property management system, school management system, appointment management system, workflow management system, case management system, admin panel software, custom dashboard, Laravel admin panel",
   url: "https://panelmanage.com/solutions",
   datePublished: "2025-01-15T00:00:00Z",
   dateModified: new Date().toISOString(),
@@ -84,37 +84,52 @@ const defaultIcon = <Layers className="size-4 text-[#10b981]" />;
 
 export default function SolutionsHub() {
   return (
-    <main className="mx-auto w-full max-w-[1100px] px-5 py-25 text-white">
-      <header className="space-y-3">
-        <h1 className="text-3xl md:text-4xl font-semibold">
-          Management Systems We Build
-        </h1>
-        <p className="text-zinc-300">
-          Custom management systems and admin panels built around your workflow
-          — scheduling, approvals, uploads, exports, roles, and reporting.
-        </p>
-      </header>
+    <>
+      <PageJsonLd
+        title="Management Systems We Build"
+        description="Custom management systems and admin panels built around your workflow — scheduling, approvals, uploads, exports, roles, and reporting. Appointment, clinic, employee, scholarship, and practice management systems."
+        url="https://panelmanage.com/solutions"
+        datePublished="2025-01-15T00:00:00Z"
+        dateModified={new Date().toISOString()}
+        type="CollectionPage"
+        breadcrumbs={[
+          { name: "Home", item: "https://panelmanage.com" },
+          { name: "Solutions", item: "https://panelmanage.com/solutions" },
+        ]}
+      />
+      <main className="mx-auto w-full max-w-[1100px] px-5 py-25 text-white">
+        <header className="space-y-3">
+          <h1 className="text-3xl md:text-4xl font-semibold">
+            Management Systems We Build
+          </h1>
+          <p className="text-zinc-300">
+            Custom management systems and admin panels built around your
+            workflow — scheduling, approvals, uploads, exports, roles, and
+            reporting.
+          </p>
+        </header>
 
-      <section className="mt-10 grid gap-3 sm:grid-cols-2">
-        {SOLUTIONS_ALL.map((s) => (
-          <Link
-            key={s.slug}
-            href={`/solutions/${s.slug}`}
-            className="flex flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
-          >
-            <div className="flex items-center gap-2 text-white">
-              <span className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
-                {iconBySlug[s.slug] ?? defaultIcon}
-              </span>
-              <h2 className="text-lg font-semibold">{s.pageName}</h2>
-            </div>
-            <p className="text-sm text-zinc-300">{s.metaDescription}</p>
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-[#10b981] underline">{s.keyword}</span>
-            </div>
-          </Link>
-        ))}
-      </section>
-    </main>
+        <section className="mt-10 grid gap-3 sm:grid-cols-2">
+          {SOLUTIONS_ALL.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/solutions/${s.slug}`}
+              className="flex flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
+            >
+              <div className="flex items-center gap-2 text-white">
+                <span className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
+                  {iconBySlug[s.slug] ?? defaultIcon}
+                </span>
+                <h2 className="text-lg font-semibold">{s.pageName}</h2>
+              </div>
+              <p className="text-sm text-zinc-300">{s.metaDescription}</p>
+              <div className="flex items-center gap-2 text-sm">
+                {/* <span className="text-[#94989]  font-bold">{s.keyword}</span> */}
+              </div>
+            </Link>
+          ))}
+        </section>
+      </main>
+    </>
   );
 }

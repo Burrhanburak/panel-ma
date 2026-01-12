@@ -95,7 +95,7 @@ export function PanelsSection() {
 
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-1">
-              <div className="h-5 w-5 rounded-md bg-[#10b981] text-black text-xs font-semibold grid place-items-center">
+              <div className="h-5 w-6 rounded-md bg-[#10b981] text-black text-xs font-semibold grid place-items-center">
                 12+
               </div>
               <span className="text-sm text-white">custom modules</span>

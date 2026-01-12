@@ -127,7 +127,7 @@ export function Footer() {
           {/* Newsletter form */}
           <div className="space-y-4 md:col-span-1">
             <p className="text-sm font-medium text-zinc-100">
-              What’s new, straight to you
+              Product updates & system insights{" "}
             </p>
             <form
               className="flex flex-col gap-3"
@@ -137,7 +137,7 @@ export function Footer() {
                 <input
                   type="email"
                   required
-                  placeholder="your@email.com"
+                  placeholder="your@company.com"
                   className="w-full rounded-xl border border-zinc-700/70 bg-zinc-900/60 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-colors focus:border-[#10b981] focus:ring-2 focus:ring-[#10b981]/40"
                 />
               </div>
@@ -153,8 +153,14 @@ export function Footer() {
               </button> */}
             </form>
             <p className="text-xs leading-relaxed text-zinc-500">
-              Includes the latest product updates, productivity tips, and
-              insights.
+              By subscribing, you agree to our{" "}
+              <Link
+                href="/privacy-policy"
+                className="text-zinc-100 hover:text-white/90"
+              >
+                Privacy Policy
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -164,17 +170,17 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col items-center justify-between gap-3 text-xs text-zinc-500 md:flex-row">
-          <p>© 2025 Panel Manage. All rights reserved.</p>
+          <p>© 2025 Panel Management Systems. All rights reserved.</p>
           <div className="flex items-center gap-1.5">
             <span>Created by</span>
-            <a
-              href="https://x.com/kreativnik_"
+            <Link
+              href="https://moydus.com"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-zinc-200 hover:text-white"
             >
-              Moy
-            </a>
+              Moydus
+            </Link>
           </div>
         </div>
       </div>

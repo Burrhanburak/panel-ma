@@ -11,7 +11,7 @@ export const contentType = "image/png";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://www.moydus.com"
+    ? "https://panelmanage.com"
     : "http://localhost:3000";
 
 export default function OG() {
@@ -19,10 +19,10 @@ export default function OG() {
     (
       <div style={container}>
         <img
-          src={`${baseUrl}/open-grap.png`}
+          src={`${baseUrl}/panel-managez.png`}
           width={100}
           height={100}
-          alt="Moydus Logo"
+          alt="PanelManage Logo"
         />
         <div style={title}>PanelManage — Management System Software</div>
         <div style={desc}>

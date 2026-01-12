@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
+import { PageJsonLd } from "@/components/PageJsonLd";
 
 export const metadata: Metadata = createMetadata({
   title: "Responsible Disclosure",
@@ -13,7 +14,20 @@ export const metadata: Metadata = createMetadata({
 
 export default function ResponsibleDisclosurePage() {
   return (
-    <main className="mx-auto w-full max-w-[900px] px-5 py-20 text-white">
+    <>
+      <PageJsonLd
+        title="Responsible Disclosure"
+        description="Responsible Disclosure Policy for PanelManage. Learn how to report security vulnerabilities responsibly and help us keep our systems secure."
+        url="https://panelmanage.com/responsible-disclosure"
+        datePublished="2025-01-15T00:00:00Z"
+        dateModified={new Date().toISOString()}
+        type="WebPage"
+        breadcrumbs={[
+          { name: "Home", item: "https://panelmanage.com" },
+          { name: "Responsible Disclosure", item: "https://panelmanage.com/responsible-disclosure" },
+        ]}
+      />
+      <main className="mx-auto w-full max-w-[900px] px-5 py-20 text-white">
       <h1 className="text-3xl md:text-4xl font-semibold mb-4">
         Responsible Disclosure
       </h1>
@@ -22,6 +36,7 @@ export default function ResponsibleDisclosurePage() {
         PanelManage. Content to be finalized.
       </p>
     </main>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
+import { PageJsonLd } from "@/components/PageJsonLd";
 
 export const metadata: Metadata = createMetadata({
   title: "Terms of Service",
@@ -13,7 +14,20 @@ export const metadata: Metadata = createMetadata({
 
 export default function TermsOfServicePage() {
   return (
-    <main className="mx-auto w-full max-w-[900px] px-5 py-20 text-white">
+    <>
+      <PageJsonLd
+        title="Terms of Service"
+        description="Terms of Service for PanelManage. Read the terms under which our custom management system and admin panel services are provided."
+        url="https://panelmanage.com/terms-of-service"
+        datePublished="2025-01-15T00:00:00Z"
+        dateModified={new Date().toISOString()}
+        type="WebPage"
+        breadcrumbs={[
+          { name: "Home", item: "https://panelmanage.com" },
+          { name: "Terms of Service", item: "https://panelmanage.com/terms-of-service" },
+        ]}
+      />
+      <main className="mx-auto w-full max-w-[900px] px-5 py-20 text-white">
       <h1 className="text-3xl md:text-4xl font-semibold mb-4">
         Terms of Service
       </h1>
@@ -22,6 +36,7 @@ export default function TermsOfServicePage() {
         provided. Content to be finalized.
       </p>
     </main>
+    </>
   );
 }
 

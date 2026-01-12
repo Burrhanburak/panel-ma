@@ -9,13 +9,14 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { PanelsSection } from "@/components/IntegrationsSection";
 import Hero from "@/components/Hero";
 import { createMetadata } from "@/lib/metadata";
+import { PageJsonLd } from "@/components/PageJsonLd";
 
 export const metadata: Metadata = createMetadata({
-  title: "Custom Management Systems Built for Real Operations",
+  title: "Management Systems | Practice Clinic HR Inventory School",
   description:
-    "We build appointment, clinic, employee, scholarship, and practice management systems — delivered as custom admin panel software with roles, modules, and workflow automation tailored to how your team operates.",
+    "Custom practice management system, clinic management software, HR employee systems, school management. Admin panels with appointment scheduling, patient portal, inventory tracking, full ownership.",
   keywords:
-    "custom admin panel, management system, appointment system, clinic management, employee tracking, scholarship management, practice management, custom dashboard, Laravel admin panel, workflow automation",
+    "management system, practice management system, clinic management system, hr management system, employee management system, inventory management system, school management system, appointment management system, patient management system, custom admin panel, clinic management software, medical practice management, content management system, project management system, custom management system, crm management system, maintenance management system, document management system, vendor management system, property management system, workflow management system, case management system, admin panel software, internal management system, mental health practice management system, psychologist practice management software, teacher management system, law firm case management system, insurance claims management system, ERP system, LMS learning management system, QMS quality management system, custom dashboard, Laravel admin panel",
   url: "https://panelmanage.com",
   datePublished: "2025-01-15T00:00:00Z",
   dateModified: new Date().toISOString(),
@@ -24,10 +25,18 @@ export const metadata: Metadata = createMetadata({
 export default function Home() {
   return (
     <>
+      <PageJsonLd
+        title="Management Systems | Practice Clinic HR Inventory School"
+        description="Custom practice management system, clinic management software, HR employee systems, school management. Admin panels with appointment scheduling, patient portal, inventory tracking, full ownership."
+        url="https://panelmanage.com"
+        datePublished="2025-01-15T00:00:00Z"
+        dateModified={new Date().toISOString()}
+        type="WebPage"
+      />
       <Hero
-        title="Custom Management Systems Built for Real Operations"
-        description="We build appointment, clinic, employee, scholarship, and practice management systems — delivered as custom admin panel software with roles, modules, and workflow automation tailored to how your team operates."
-        badgeText="PanelManage"
+        title="Management Systems for Practice, Clinic, HR & School"
+        description="Custom admin panels with appointment scheduling, patient management, employee tracking, inventory control. Complete ownership - no subscriptions."
+        badgeText="60+ Management Systems"
         badgeLabel="Management System Software"
         ctaButtons={[
           {
@@ -35,7 +44,10 @@ export default function Home() {
             href: "/solutions",
             primary: true,
           },
-          { text: "Request a Demo", href: "#contact" },
+          {
+            text: "Request a Demo",
+            href: "https://app.panelmanage.com/register",
+          },
         ]}
         microDetails={[
           "Appointment, clinic, employee & scholarship management systems",

@@ -25,6 +25,7 @@ export type Solution = {
   faqs: FAQ[];
   extraFaqs?: FAQ[];
   tags: string[];
+  seoKeywords?: string[];
 };
 
 export const BRAND = {
@@ -79,6 +80,18 @@ export const SOLUTIONS: Solution[] = [
       "We build custom appointment management systems that fit your workflow — scheduling, approvals, reminders, and reporting in one place.",
     datePublished: PUBLISHED,
     tags: ["scheduling", "healthcare", "operations", "workflow"],
+    seoKeywords: [
+      "appointment scheduling software",
+      "doctor booking system",
+      "calendar management panel",
+      "appointment management system",
+      "patient scheduling software",
+      "medical appointment system",
+      "clinic booking software",
+      "healthcare scheduling system",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -180,6 +193,18 @@ export const SOLUTIONS: Solution[] = [
       "Run clinic operations with a custom management system that centralizes schedules, staff workflows, patient records, and reporting.",
     datePublished: PUBLISHED,
     tags: ["healthcare", "operations", "workflow"],
+    seoKeywords: [
+      "clinic management software",
+      "medical practice panel",
+      "healthcare admin dashboard",
+      "clinic management system",
+      "medical practice management software",
+      "doctor management panel",
+      "patient management system",
+      "healthcare admin panel",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -278,6 +303,16 @@ export const SOLUTIONS: Solution[] = [
       "Track shifts, tasks, approvals, and exports with a custom employee management system built around your workforce operations.",
     datePublished: PUBLISHED,
     tags: ["workforce", "operations", "workflow"],
+    seoKeywords: [
+      "employee management system",
+      "HRMS",
+      "staff management software",
+      "employee tracking system",
+      "workforce management software",
+      "staff scheduling system",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -352,6 +387,16 @@ export const SOLUTIONS: Solution[] = [
       "Replace email chains with a scholarship management system that handles applications, uploads, scoring, approvals, and visibility.",
     datePublished: PUBLISHED,
     tags: ["education", "workflow", "operations"],
+    seoKeywords: [
+      "scholarship management system",
+      "student aid tracking",
+      "grant management software",
+      "burs yönetim sistemi",
+      "scholarship tracking system",
+      "student financial aid system",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -501,6 +546,16 @@ export const SOLUTIONS: Solution[] = [
       "A practice management system that matches your roles, approvals, and operational steps — built as a custom panel.",
     datePublished: PUBLISHED,
     tags: ["operations", "workflow"],
+    seoKeywords: [
+      "practice management system",
+      "medical practice software",
+      "doctor management panel",
+      "practice management software",
+      "medical practice management system",
+      "healthcare practice panel",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -940,6 +995,16 @@ export const SOLUTIONS: Solution[] = [
       "Run intake, scheduling, documentation, and operations with a mental health practice management system built around your real workflow.",
     datePublished: PUBLISHED,
     tags: ["healthcare", "mental-health", "workflow"],
+    seoKeywords: [
+      "mental health practice management system",
+      "psychologist practice management software",
+      "terapi randevu sistemi",
+      "therapy scheduling software",
+      "mental health admin panel",
+      "therapy practice management",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -1015,6 +1080,16 @@ export const SOLUTIONS: Solution[] = [
       "We build psychologist practice management software that supports intake, scheduling, documentation, reminders, and reporting — tailored to your practice.",
     datePublished: PUBLISHED,
     tags: ["healthcare", "mental-health", "workflow"],
+    seoKeywords: [
+      "psychologist practice management software",
+      "terapi randevu sistemi",
+      "therapy scheduling software",
+      "mental health practice management",
+      "psychologist admin panel",
+      "therapy management system",
+      "custom admin panel",
+      "management system",
+    ],
     sections: [
       {
         h2: "Who this is for",
@@ -1247,6 +1322,16 @@ export const MORE_SOLUTIONS: Solution[] = [
       "Track stock, suppliers, and approvals with a custom inventory system that matches how your business actually runs.",
     datePublished: PUBLISHED,
     tags: ["operations", "workflow", "inventory", "internal-tools"],
+    seoKeywords: [
+      "inventory management system",
+      "stock control software",
+      "warehouse management",
+      "stok takip sistemi",
+      "inventory tracking system",
+      "warehouse management software",
+      "custom admin panel",
+      "management system",
+    ],
     faqs: buildFaqs([
       {
         q: "Can you support purchase approvals?",
@@ -1312,6 +1397,16 @@ export const MORE_SOLUTIONS: Solution[] = [
       "Manage tenants, maintenance workflows, approvals, and reporting in one custom panel — built for property operations.",
     datePublished: PUBLISHED,
     tags: ["operations", "workflow", "property"],
+    seoKeywords: [
+      "property management system",
+      "emlak yönetim paneli",
+      "real estate management software",
+      "property management software",
+      "tenant management system",
+      "rental management system",
+      "custom admin panel",
+      "management system",
+    ],
     faqs: buildFaqs([
       {
         q: "Can tenants submit maintenance requests?",
@@ -1417,6 +1512,16 @@ export const MORE_SOLUTIONS: Solution[] = [
       "Run restaurant operations with a custom management system that tracks shifts, tasks, approvals, and operational reporting in one place.",
     datePublished: PUBLISHED,
     tags: ["operations", "workforce", "workflow"],
+    seoKeywords: [
+      "restaurant POS system",
+      "F&B management software",
+      "table reservation system",
+      "restaurant management system",
+      "restaurant management software",
+      "restoran pos sistemi",
+      "custom admin panel",
+      "management system",
+    ],
     faqs: buildFaqs([
       {
         q: "Can you include shift planning and task tracking?",
@@ -1643,6 +1748,16 @@ export const MORE_SOLUTIONS: Solution[] = [
       "Centralize HR workflows with a custom panel — employee records, approvals, uploads, and reporting built to match your internal process.",
     datePublished: PUBLISHED,
     tags: ["operations", "workforce", "workflow"],
+    seoKeywords: [
+      "HR management system",
+      "human resources software",
+      "employee portal",
+      "HRMS software",
+      "HR management software",
+      "human resources management system",
+      "custom admin panel",
+      "management system",
+    ],
     faqs: buildFaqs([
       {
         q: "Can you manage employee documents and approvals?",

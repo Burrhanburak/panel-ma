@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 type StatCard = {
   label: string;
@@ -154,12 +155,12 @@ export function TestimonialsSection() {
 
             {/* Leave a review button */}
             <div>
-              <button
-                type="button"
+              <Link
+                href="https://app.panelmanage.com/register"
                 className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-[linear-gradient(180deg,#262626_0%,#0f0f0f_100%)] text-sm font-medium text-white shadow-md shadow-black/40 transition hover:brightness-110"
               >
                 Request a demo
-              </button>
+              </Link>
             </div>
           </div>
 
