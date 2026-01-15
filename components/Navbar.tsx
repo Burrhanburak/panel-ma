@@ -4,6 +4,13 @@ import React, { useState } from "react";
 import { Logo } from "./Logo";
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
+];
+
 const AnimatedNavLink = ({
   href,
   children,
@@ -16,7 +23,7 @@ const AnimatedNavLink = ({
   const textSizeClass = "text-sm";
 
   return (
-    <a
+    <Link
       href={href}
       className={`group relative inline-block overflow-hidden h-5 flex items-center ${textSizeClass}`}
     >
@@ -24,7 +31,7 @@ const AnimatedNavLink = ({
         <span className={defaultTextColor}>{children}</span>
         <span className={hoverTextColor}>{children}</span>
       </div>
-    </a>
+    </Link>
   );
 };
 
@@ -32,7 +39,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((open) => !open);
   };
 
   const logoElement = (
@@ -44,13 +51,6 @@ export function Navbar() {
       <span className="absolute w-1.5 h-1.5 rounded-full bg-gray-200 bottom-0 left-1/2 transform -translate-x-1/2 opacity-80"></span> */}
     </div>
   );
-
-  const navLinksData = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/#about" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact", href: "/contact" },
-  ];
 
   const loginButtonElement = (
     <Link
@@ -87,7 +87,7 @@ export function Navbar() {
         <div className="flex items-center">{logoElement}</div>
 
         <nav className="hidden sm:flex items-center space-x-4 sm:space-x-6 text-sm">
-          {navLinksData.map((link) => (
+          {NAV_LINKS.map((link) => (
             <AnimatedNavLink key={link.href} href={link.href}>
               {link.label}
             </AnimatedNavLink>
@@ -147,14 +147,14 @@ export function Navbar() {
                        }`}
       >
         <nav className="flex flex-col items-center space-y-4 text-base w-full">
-          {navLinksData.map((link) => (
-            <a
+          {NAV_LINKS.map((link) => (
+            <Link
               key={link.href}
               href={link.href}
               className="text-gray-300 hover:text-white transition-colors w-full text-center"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex flex-col items-center space-y-4 mt-4 w-full">

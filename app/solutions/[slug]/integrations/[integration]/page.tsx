@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BRAND, SOLUTION_BY_SLUG } from "@/data/solutions";
+import { BRAND, getSolutionBySlug } from "@/data/solutions";
 import { getIntegrationBySlug } from "@/data/integrations";
 import { createMetadata } from "@/lib/metadata";
 import { PageJsonLd } from "@/components/PageJsonLd";
@@ -18,9 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolved = await params;
   const integration = getIntegrationBySlug(resolved.slug, resolved.integration);
-  const solution = integration
-    ? SOLUTION_BY_SLUG.get(resolved.slug)
-    : undefined;
+  const solution = integration ? getSolutionBySlug(resolved.slug) : undefined;
 
   if (!integration || !solution) {
     return createMetadata({
@@ -58,9 +56,7 @@ export default async function IntegrationPage({
 }) {
   const resolved = await params;
   const integration = getIntegrationBySlug(resolved.slug, resolved.integration);
-  const solution = integration
-    ? SOLUTION_BY_SLUG.get(resolved.slug)
-    : undefined;
+  const solution = integration ? getSolutionBySlug(resolved.slug) : undefined;
 
   if (!integration || !solution) {
     return notFound();
@@ -68,6 +64,11 @@ export default async function IntegrationPage({
 
   const url = `${BRAND.url}/solutions/${resolved.slug}/integrations/${resolved.integration}`;
   const solutionUrl = `${BRAND.url}/solutions/${solution.slug}`;
+  const dateModified = new Date().toISOString();
+  const integrationImage = getIntegrationImage(
+    integration.solutionSlug,
+    integration.integrationSlug
+  );
 
   return (
     <>
@@ -76,7 +77,7 @@ export default async function IntegrationPage({
         description={integration.description}
         url={url}
         datePublished="2025-01-15T00:00:00Z"
-        dateModified={new Date().toISOString()}
+        dateModified={dateModified}
         type="WebPage"
         breadcrumbs={[
           { name: "Home", item: BRAND.url },
@@ -111,18 +112,8 @@ export default async function IntegrationPage({
             <div className="w-full md:w-80 flex-shrink-0">
               <div className="relative rounded-xl border border-white/10 bg-white/5 overflow-hidden aspect-video">
                 <SafeImage
-                  src={
-                    getIntegrationImage(
-                      integration.solutionSlug,
-                      integration.integrationSlug
-                    ).url
-                  }
-                  alt={
-                    getIntegrationImage(
-                      integration.solutionSlug,
-                      integration.integrationSlug
-                    ).alt
-                  }
+                  src={integrationImage.url}
+                  alt={integrationImage.alt}
                   fill
                   className="object-contain"
                   priority

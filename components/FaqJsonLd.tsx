@@ -1,5 +1,4 @@
 // components/FaqJsonLd.tsx
-import React from "react";
 
 type FaqItem = {
   question: string;

@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import { BRAND, type FAQ, type Solution } from "@/data/solutions";
 
 export function SeoJsonLd({
@@ -72,11 +69,10 @@ export function SeoJsonLd({
   };
 
   return (
-    <Script
+    <script
       id={`${solution.slug}-jsonld`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
 }
-

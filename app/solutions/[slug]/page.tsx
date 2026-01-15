@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   BRAND,
-  SOLUTION_BY_SLUG,
   SOLUTIONS_ALL,
+  getSolutionBySlug,
   pickRelated,
   type ContentBlock,
 } from "@/data/solutions";
@@ -58,7 +58,7 @@ export async function generateMetadata({
   if (resolved.slug.includes("-vs-")) {
     const comparison = getComparisonBySlug(resolved.slug);
     const solution = comparison
-      ? SOLUTION_BY_SLUG.get(comparison.solutionSlug)
+      ? getSolutionBySlug(comparison.solutionSlug)
       : undefined;
 
     if (!comparison || !solution) {
@@ -92,7 +92,7 @@ export async function generateMetadata({
   }
 
   // Regular solution page
-  const solution = SOLUTION_BY_SLUG.get(resolved.slug);
+  const solution = getSolutionBySlug(resolved.slug);
   if (!solution) {
     return createMetadata({
       title: "Solution Not Found",
@@ -141,7 +141,7 @@ export default async function SolutionPage({
   if (resolved.slug.includes("-vs-")) {
     const comparison = getComparisonBySlug(resolved.slug);
     const solution = comparison
-      ? SOLUTION_BY_SLUG.get(comparison.solutionSlug)
+      ? getSolutionBySlug(comparison.solutionSlug)
       : undefined;
 
     if (!comparison || !solution) {
@@ -150,6 +150,11 @@ export default async function SolutionPage({
 
     const url = `${BRAND.url}/solutions/${resolved.slug}`;
     const solutionUrl = `${BRAND.url}/solutions/${solution.slug}`;
+    const dateModified = new Date().toISOString();
+    const comparisonImage = getComparisonImage(
+      comparison.solutionSlug,
+      comparison.competitorSlug
+    );
 
     return (
       <>
@@ -158,7 +163,7 @@ export default async function SolutionPage({
           description={comparison.description}
           url={url}
           datePublished="2025-01-15T00:00:00Z"
-          dateModified={new Date().toISOString()}
+          dateModified={dateModified}
           type="WebPage"
           breadcrumbs={[
             { name: "Home", item: BRAND.url },
@@ -196,18 +201,8 @@ export default async function SolutionPage({
               <div className="w-full md:w-80 flex-shrink-0">
                 <div className="relative rounded-xl border border-white/10 bg-white/5 overflow-hidden aspect-video">
                   <SafeImage
-                    src={
-                      getComparisonImage(
-                        comparison.solutionSlug,
-                        comparison.competitorSlug
-                      ).url
-                    }
-                    alt={
-                      getComparisonImage(
-                        comparison.solutionSlug,
-                        comparison.competitorSlug
-                      ).alt
-                    }
+                    src={comparisonImage.url}
+                    alt={comparisonImage.alt}
                     fill
                     className="object-contain"
                     priority
@@ -341,11 +336,12 @@ export default async function SolutionPage({
   }
 
   // Regular solution page
-  const solution = SOLUTION_BY_SLUG.get(resolved.slug);
+  const solution = getSolutionBySlug(resolved.slug);
   if (!solution) return notFound();
 
   const dateModified = new Date().toISOString();
   const url = `${BRAND.url}/solutions/${solution.slug}`;
+  const solutionImage = getSolutionImage(solution.slug);
   const breadcrumbs = [
     { name: "Home", item: BRAND.url },
     { name: "Solutions", item: `${BRAND.url}/solutions` },
@@ -383,8 +379,8 @@ export default async function SolutionPage({
             <div className="w-full md:w-80 flex-shrink-0">
               <div className="relative rounded-xl border border-white/10 bg-white/5 overflow-hidden aspect-video">
                 <SafeImage
-                  src={getSolutionImage(solution.slug).url}
-                  alt={getSolutionImage(solution.slug).alt}
+                  src={solutionImage.url}
+                  alt={solutionImage.alt}
                   fill
                   className="object-contain"
                   priority

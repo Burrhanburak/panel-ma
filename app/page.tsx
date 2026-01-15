@@ -10,6 +10,8 @@ import { PanelsSection } from "@/components/IntegrationsSection";
 import Hero from "@/components/Hero";
 import { createMetadata } from "@/lib/metadata";
 import { PageJsonLd } from "@/components/PageJsonLd";
+import FaqJsonLd from "@/components/FaqJsonLd";
+import { FAQ_ITEMS } from "@/data/faqs";
 
 export const metadata: Metadata = createMetadata({
   title: "Management Systems | Practice Clinic HR Inventory School",
@@ -32,6 +34,13 @@ export default function Home() {
         datePublished="2025-01-15T00:00:00Z"
         dateModified={new Date().toISOString()}
         type="WebPage"
+      />
+      <FaqJsonLd
+        pageUrl="https://panelmanage.com/"
+        items={FAQ_ITEMS.map((item) => ({
+          question: item.question,
+          answer: item.answer,
+        }))}
       />
       <Hero
         title="Management Systems for Practice, Clinic, HR & School"

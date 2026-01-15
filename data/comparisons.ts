@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 export interface Comparison {
   solutionSlug: string;
   competitorSlug: string;
@@ -528,11 +530,21 @@ export const COMPARISON_BY_SLUG = new Map<string, Comparison>(
   COMPARISONS.map((c) => [`${c.solutionSlug}-vs-${c.competitorSlug}`, c])
 );
 
-export function getComparisonBySlug(slug: string): Comparison | undefined {
-  return COMPARISON_BY_SLUG.get(slug);
+export const COMPARISONS_BY_SOLUTION = new Map<string, Comparison[]>();
+for (const comparison of COMPARISONS) {
+  const list = COMPARISONS_BY_SOLUTION.get(comparison.solutionSlug);
+  if (list) {
+    list.push(comparison);
+  } else {
+    COMPARISONS_BY_SOLUTION.set(comparison.solutionSlug, [comparison]);
+  }
 }
 
-export function getComparisonsBySolutionSlug(solutionSlug: string): Comparison[] {
-  return COMPARISONS.filter((c) => c.solutionSlug === solutionSlug);
-}
+export const getComparisonBySlug = cache(
+  (slug: string): Comparison | undefined => COMPARISON_BY_SLUG.get(slug)
+);
 
+export const getComparisonsBySolutionSlug = cache(
+  (solutionSlug: string): Comparison[] =>
+    COMPARISONS_BY_SOLUTION.get(solutionSlug) ?? []
+);

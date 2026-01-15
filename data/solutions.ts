@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 export type FAQ = { q: string; a: string };
 
 export type ContentBlock =
@@ -1824,7 +1826,11 @@ export const MORE_SOLUTIONS: Solution[] = [
 export const SOLUTIONS_ALL: Solution[] = [...SOLUTIONS, ...MORE_SOLUTIONS];
 export const SOLUTION_BY_SLUG = new Map(SOLUTIONS_ALL.map((s) => [s.slug, s]));
 
-export function pickRelated(slug: string, count = 5) {
+export const getSolutionBySlug = cache((slug: string) =>
+  SOLUTION_BY_SLUG.get(slug)
+);
+
+export const pickRelated = cache((slug: string, count = 5) => {
   const current = SOLUTION_BY_SLUG.get(slug);
   if (!current) return [];
   const scored = SOLUTIONS_ALL.filter((s) => s.slug !== slug).map((s) => {
@@ -1839,5 +1845,4 @@ export function pickRelated(slug: string, count = 5) {
     href: `/solutions/${s.slug}`,
     label: s.keyword,
   }));
-}
-
+});

@@ -10,6 +10,7 @@ interface SafeImageProps {
   fill?: boolean;
   width?: number;
   height?: number;
+  sizes?: string;
   className?: string;
   priority?: boolean;
 }
@@ -20,6 +21,7 @@ export function SafeImage({
   fill,
   width,
   height,
+  sizes,
   className,
   priority,
 }: SafeImageProps) {
@@ -32,29 +34,24 @@ export function SafeImage({
     }
   };
 
+  const imageProps = {
+    src: imgSrc,
+    alt,
+    className,
+    priority,
+    onError: handleError,
+  };
+
   if (fill) {
-    return (
-      <Image
-        src={imgSrc}
-        alt={alt}
-        width={width ?? 1200}
-        height={height ?? 630}
-        className={className}
-        priority={priority}
-        onError={handleError}
-      />
-    );
+    return <Image {...imageProps} fill sizes={sizes ?? "100vw"} />;
   }
 
   return (
     <Image
-      src={imgSrc}
-      alt={alt}
+      {...imageProps}
       width={width ?? 1200}
       height={height ?? 630}
-      className={className}
-      priority={priority}
-      onError={handleError}
+      sizes={sizes}
     />
   );
 }

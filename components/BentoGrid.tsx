@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import {
@@ -91,13 +90,25 @@ export default function BentoGrid() {
           variants={cardVariants}
           className="bg-card border border-white/5 flex flex-col overflow-hidden rounded-xl pb-6 text-white sm:col-span-2"
         >
-          <div className="group relative flex items-center justify-center overflow-hidden p-6" />
-          <Image
+          <div className="group relative flex items-center justify-center overflow-hidden" />
+          {/* <Video
             src="/m.gif"
             alt="PanelManage demo"
             width={1000}
             height={1000}
-          />
+          /> */}
+          <div className="flex justify-center items-center w-full ">
+            <video
+              className="w-full max-w-4xl rounded-xl shadow-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            >
+              <source src="/sec-mo.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div className="space-y-4 px-6 text-white">
             <h3 className="text-2xl font-semibold">
               Launch workflow-ready management systems in weeks

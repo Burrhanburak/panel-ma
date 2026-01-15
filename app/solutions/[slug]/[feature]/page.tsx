@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BRAND, SOLUTION_BY_SLUG } from "@/data/solutions";
+import { BRAND, getSolutionBySlug } from "@/data/solutions";
 import { getFeatureBySlug } from "@/data/features";
 import { createMetadata } from "@/lib/metadata";
 import { PageJsonLd } from "@/components/PageJsonLd";
@@ -18,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolved = await params;
   const feature = getFeatureBySlug(resolved.slug, resolved.feature);
-  const solution = feature ? SOLUTION_BY_SLUG.get(resolved.slug) : undefined;
+  const solution = feature ? getSolutionBySlug(resolved.slug) : undefined;
 
   if (!feature || !solution) {
     return createMetadata({
@@ -56,7 +56,7 @@ export default async function FeaturePage({
 }) {
   const resolved = await params;
   const feature = getFeatureBySlug(resolved.slug, resolved.feature);
-  const solution = feature ? SOLUTION_BY_SLUG.get(resolved.slug) : undefined;
+  const solution = feature ? getSolutionBySlug(resolved.slug) : undefined;
 
   if (!feature || !solution) {
     return notFound();
@@ -64,6 +64,11 @@ export default async function FeaturePage({
 
   const url = `${BRAND.url}/solutions/${resolved.slug}/${resolved.feature}`;
   const solutionUrl = `${BRAND.url}/solutions/${solution.slug}`;
+  const dateModified = new Date().toISOString();
+  const featureImage = getFeatureImage(
+    feature.solutionSlug,
+    feature.featureSlug
+  );
 
   return (
     <>
@@ -72,7 +77,7 @@ export default async function FeaturePage({
         description={feature.description}
         url={url}
         datePublished="2025-01-15T00:00:00Z"
-        dateModified={new Date().toISOString()}
+        dateModified={dateModified}
         type="WebPage"
         breadcrumbs={[
           { name: "Home", item: BRAND.url },
@@ -105,14 +110,8 @@ export default async function FeaturePage({
             <div className="w-full md:w-80 flex-shrink-0">
               <div className="relative rounded-xl border border-white/10 bg-white/5 overflow-hidden aspect-video">
                 <SafeImage
-                  src={
-                    getFeatureImage(feature.solutionSlug, feature.featureSlug)
-                      .url
-                  }
-                  alt={
-                    getFeatureImage(feature.solutionSlug, feature.featureSlug)
-                      .alt
-                  }
+                  src={featureImage.url}
+                  alt={featureImage.alt}
                   fill
                   className="object-contain"
                   priority

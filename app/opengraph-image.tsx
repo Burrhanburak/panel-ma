@@ -19,7 +19,7 @@ export default function OG() {
     (
       <div style={container}>
         <img
-          src={`${baseUrl}/panel-managez.png`}
+          src={`${baseUrl}/favicon.svg`}
           width={100}
           height={100}
           alt="PanelManage Logo"

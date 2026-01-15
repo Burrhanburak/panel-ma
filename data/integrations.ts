@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 export interface Integration {
   solutionSlug: string;
   integrationSlug: string;
@@ -118,14 +120,22 @@ export const INTEGRATION_BY_SLUG = new Map<string, Integration>(
   INTEGRATIONS.map((i) => [`${i.solutionSlug}/${i.integrationSlug}`, i])
 );
 
-export function getIntegrationBySlug(
-  solutionSlug: string,
-  integrationSlug: string
-): Integration | undefined {
-  return INTEGRATION_BY_SLUG.get(`${solutionSlug}/${integrationSlug}`);
+export const INTEGRATIONS_BY_SOLUTION = new Map<string, Integration[]>();
+for (const integration of INTEGRATIONS) {
+  const list = INTEGRATIONS_BY_SOLUTION.get(integration.solutionSlug);
+  if (list) {
+    list.push(integration);
+  } else {
+    INTEGRATIONS_BY_SOLUTION.set(integration.solutionSlug, [integration]);
+  }
 }
 
-export function getIntegrationsBySolutionSlug(solutionSlug: string): Integration[] {
-  return INTEGRATIONS.filter((i) => i.solutionSlug === solutionSlug);
-}
+export const getIntegrationBySlug = cache(
+  (solutionSlug: string, integrationSlug: string): Integration | undefined =>
+    INTEGRATION_BY_SLUG.get(`${solutionSlug}/${integrationSlug}`)
+);
 
+export const getIntegrationsBySolutionSlug = cache(
+  (solutionSlug: string): Integration[] =>
+    INTEGRATIONS_BY_SOLUTION.get(solutionSlug) ?? []
+);

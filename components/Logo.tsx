@@ -13,8 +13,8 @@ export const Logo = ({ className, variant = "default" }: LogoProps) => {
       {/* Wrapper sabit oranlı olsun */}
       <div className="relative  h-[18px] flex-shrink-0 flex items-center ">
         {/* Light mode logo */}
-        <Link href="/">
-          <div className="z-10 inline-flex cursor-pointer rounded-xl items-center gap-2 p-1 text-center shadow-lg shadow-[#26bd6c]"></div>
+        <Link href="/" className="mb-5">
+          <div className="z-10 inline-flex cursor-pointer rounded-xl items-center gap-2  text-center shadow-lg shadow-[#26bd6c]"></div>
 
           <svg
             width="22"

@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import { BRAND } from "@/data/solutions";
 
 interface PageJsonLdProps {
@@ -61,11 +58,10 @@ export function PageJsonLd({
   };
 
   return (
-    <Script
+    <script
       id={`${url.replace(/[^a-zA-Z0-9]/g, "-")}-jsonld`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
 }
-

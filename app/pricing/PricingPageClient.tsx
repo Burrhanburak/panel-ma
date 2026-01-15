@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -45,6 +45,168 @@ const ROW_H = "h-14"; // 56px
 const LABEL_ROW = `${ROW_H} border-b border-white/10 text-white/80 text-sm flex items-center overflow-hidden`;
 const CELL_ROW = `${ROW_H} border-b border-white/10 flex items-center justify-center`;
 const GROUP_TITLE = "h-16 flex items-center text-lg font-semibold text-white";
+
+const PLANS: Plan[] = [
+  {
+    key: "starter",
+    name: "Starter",
+    price: "$4,950+",
+    priceNote: "starting from (custom panel)",
+    maintenance: "$150–$250 / month",
+    delivery: "2–4 weeks",
+    ctaLabel: "Request Quote",
+    ctaHref: "/contact?type=panel-starter",
+  },
+  {
+    key: "suite",
+    name: "Suite",
+    highlight: true,
+    price: "$7,990+",
+    priceNote: "starting from (advanced panel)",
+    maintenance: "$250–$450 / month",
+    delivery: "4–8 weeks",
+    ctaLabel: "Request Proposal",
+    ctaHref: "/contact?type=panel-suite",
+    secondaryHref: "https://panelmanage.com",
+  },
+  {
+    key: "custom",
+    name: "Custom",
+    price: "Custom",
+    priceNote: "scoped per project",
+    maintenance: "Ongoing development",
+    delivery: "6–12+ weeks",
+    ctaLabel: "Start a Conversation",
+    ctaHref: "/contact?type=custom",
+  },
+];
+
+const GROUPS: Array<{ title: string; rows: Row[] }> = [
+  {
+    title: "Platform",
+    rows: [
+      {
+        label: "Custom modules (tables, forms, actions)",
+        values: {
+          starter: "Up to 6",
+          suite: "12+ (scoped)",
+          custom: "Scopable",
+        },
+      },
+      {
+        label: "File uploads (docs/images)",
+        values: { starter: true, suite: true, custom: true },
+      },
+      {
+        label: "Export (PDF / CSV)",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "Import (CSV / XLSX)",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "White-label & custom branding",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "SSO / OAuth (Google, Microsoft)",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+      {
+        label: "Public API & webhooks",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+      {
+        label: "Reporting dashboard",
+        values: { starter: "Basic", suite: true, custom: true },
+      },
+    ],
+  },
+  {
+    title: "Workflows",
+    rows: [
+      {
+        label: "Workflow states (draft → approved)",
+        values: { starter: "Basic", suite: true, custom: true },
+      },
+      {
+        label: "Approval flows (multi-step)",
+        values: { starter: false, suite: true, custom: true },
+      },
+      {
+        label: "Notifications (email / in-app)",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "Automation-ready hooks",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "Multi-language UI",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+      {
+        label: "Embedded AI helpers (summaries, suggestions)",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+    ],
+  },
+  {
+    title: "Security",
+    rows: [
+      {
+        label: "Roles & permissions (RBAC)",
+        values: { starter: "Basic", suite: "Advanced", custom: "Advanced" },
+      },
+      {
+        label: "Secure architecture + rate limiting",
+        values: { starter: true, suite: true, custom: true },
+      },
+      {
+        label: "Audit logs",
+        values: { starter: false, suite: true, custom: true },
+      },
+      {
+        label: "2FA / OTP-ready auth",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "IP allowlist / session controls",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+    ],
+  },
+  {
+    title: "Infrastructure",
+    rows: [
+      {
+        label: "Deployment-ready setup",
+        values: { starter: true, suite: true, custom: true },
+      },
+      {
+        label: "Monitoring + backups",
+        values: { starter: "Basic", suite: true, custom: true },
+      },
+      {
+        label: "Performance hardening",
+        values: { starter: "Basic", suite: true, custom: true },
+      },
+      {
+        label: "Ongoing maintenance",
+        values: { starter: true, suite: true, custom: true },
+      },
+      {
+        label: "Custom domain & subdomain routing",
+        values: { starter: "Optional", suite: true, custom: true },
+      },
+      {
+        label: "SLA & priority support",
+        values: { starter: false, suite: "Optional", custom: true },
+      },
+    ],
+  },
+];
 
 /* ================= ICONS ================= */
 
@@ -186,170 +348,8 @@ function PricingFAQ() {
 /* ================= MAIN ================= */
 
 export default function PricingPageClient() {
-  const plans: Plan[] = useMemo(
-    () => [
-      {
-        key: "starter",
-        name: "Starter",
-        price: "$4,950+",
-        priceNote: "starting from (custom panel)",
-        maintenance: "$150–$250 / month",
-        delivery: "2–4 weeks",
-        ctaLabel: "Request Quote",
-        ctaHref: "/contact?type=panel-starter",
-      },
-      {
-        key: "suite",
-        name: "Suite",
-        highlight: true,
-        price: "$7,990+",
-        priceNote: "starting from (advanced panel)",
-        maintenance: "$250–$450 / month",
-        delivery: "4–8 weeks",
-        ctaLabel: "Request Proposal",
-        ctaHref: "/contact?type=panel-suite",
-        secondaryHref: "https://panelmanage.com",
-      },
-      {
-        key: "custom",
-        name: "Custom",
-        price: "Custom",
-        priceNote: "scoped per project",
-        maintenance: "Ongoing development",
-        delivery: "6–12+ weeks",
-        ctaLabel: "Start a Conversation",
-        ctaHref: "/contact?type=custom",
-      },
-    ],
-    []
-  );
-
-  const groups = useMemo(() => {
-    const platform: Row[] = [
-      {
-        label: "Custom modules (tables, forms, actions)",
-        values: {
-          starter: "Up to 6",
-          suite: "12+ (scoped)",
-          custom: "Scopable",
-        },
-      },
-      {
-        label: "File uploads (docs/images)",
-        values: { starter: true, suite: true, custom: true },
-      },
-      {
-        label: "Export (PDF / CSV)",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "Import (CSV / XLSX)",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "White-label & custom branding",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "SSO / OAuth (Google, Microsoft)",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-      {
-        label: "Public API & webhooks",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-      {
-        label: "Reporting dashboard",
-        values: { starter: "Basic", suite: true, custom: true },
-      },
-    ];
-
-    const workflows: Row[] = [
-      {
-        label: "Workflow states (draft → approved)",
-        values: { starter: "Basic", suite: true, custom: true },
-      },
-      {
-        label: "Approval flows (multi-step)",
-        values: { starter: false, suite: true, custom: true },
-      },
-      {
-        label: "Notifications (email / in-app)",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "Automation-ready hooks",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "Multi-language UI",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-      {
-        label: "Embedded AI helpers (summaries, suggestions)",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-    ];
-
-    const security: Row[] = [
-      {
-        label: "Roles & permissions (RBAC)",
-        values: { starter: "Basic", suite: "Advanced", custom: "Advanced" },
-      },
-      {
-        label: "Secure architecture + rate limiting",
-        values: { starter: true, suite: true, custom: true },
-      },
-      {
-        label: "Audit logs",
-        values: { starter: false, suite: true, custom: true },
-      },
-      {
-        label: "2FA / OTP-ready auth",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "IP allowlist / session controls",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-    ];
-
-    const infra: Row[] = [
-      {
-        label: "Deployment-ready setup",
-        values: { starter: true, suite: true, custom: true },
-      },
-      {
-        label: "Monitoring + backups",
-        values: { starter: "Basic", suite: true, custom: true },
-      },
-      {
-        label: "Performance hardening",
-        values: { starter: "Basic", suite: true, custom: true },
-      },
-      {
-        label: "Ongoing maintenance",
-        values: { starter: true, suite: true, custom: true },
-      },
-      {
-        label: "Custom domain & subdomain routing",
-        values: { starter: "Optional", suite: true, custom: true },
-      },
-      {
-        label: "SLA & priority support",
-        values: { starter: false, suite: "Optional", custom: true },
-      },
-    ];
-
-    return [
-      { title: "Platform", rows: platform },
-      { title: "Workflows", rows: workflows },
-      { title: "Security", rows: security },
-      { title: "Infrastructure", rows: infra },
-    ];
-  }, []);
-
   const [open, setOpen] = useState<PlanKey>("suite");
+  const activePlan = PLANS.find((plan) => plan.key === open);
 
   return (
     <section className="py-32">
@@ -357,7 +357,7 @@ export default function PricingPageClient() {
         {/* MOBILE */}
         <div className="md:hidden">
           <div className="flex flex-wrap gap-2 mb-6">
-            {plans.map((p) => (
+            {PLANS.map((p) => (
               <button
                 key={p.key}
                 onClick={() => setOpen(p.key)}
@@ -377,12 +377,12 @@ export default function PricingPageClient() {
               <Clock className="size-4 text-white/80" />
               <span className="text-sm text-white/80">
                 Delivery for <b className="text-white">{open.toUpperCase()}</b>:{" "}
-                {plans.find((p) => p.key === open)?.delivery}
+                {activePlan?.delivery}
               </span>
             </div>
           </div>
 
-          {groups.map((g) => (
+          {GROUPS.map((g) => (
             <div key={g.title} className="mb-8">
               <h3 className="text-lg font-semibold text-white mb-2">
                 {g.title}
@@ -442,7 +442,7 @@ export default function PricingPageClient() {
               {/* Left labels */}
               <div className="sticky left-0 z-10 bg-[#070204] pr-4">
                 <div className="h-[160px]" />
-                {groups.map((g) => (
+                {GROUPS.map((g) => (
                   <div key={g.title} className="mt-10">
                     <h3 className="h-16 flex items-center text-sm font-semibold text-white">
                       {g.title}
@@ -458,7 +458,7 @@ export default function PricingPageClient() {
               </div>
 
               {/* Plan columns */}
-              {plans.map((p) => (
+              {PLANS.map((p) => (
                 <div
                   key={p.key}
                   className={`px-4 py-6 rounded-2xl border w-[200px] ${
@@ -508,7 +508,7 @@ export default function PricingPageClient() {
                     )}
                   </div>
 
-                  {groups.map((g) => (
+                  {GROUPS.map((g) => (
                     <div key={g.title}>
                       <div className="h-16" />
                       {g.rows.map((r) => (
@@ -564,7 +564,7 @@ export default function PricingPageClient() {
           {/* Left labels */}
           <div>
             <div className="h-[160px]" />
-            {groups.map((g) => (
+            {GROUPS.map((g) => (
               <div key={g.title} className="mt-10">
                 <h3 className={GROUP_TITLE}>{g.title}</h3>
                 <div className="h-16" />
@@ -578,7 +578,7 @@ export default function PricingPageClient() {
           </div>
 
           {/* Plan columns */}
-          {plans.map((p) => (
+          {PLANS.map((p) => (
             <div
               key={p.key}
               className={`px-6 rounded-2xl border ${
@@ -632,7 +632,7 @@ export default function PricingPageClient() {
                 )}
               </div>
 
-              {groups.map((g) => (
+              {GROUPS.map((g) => (
                 <div key={g.title}>
                   <div className="h-16" />
                   {g.rows.map((r) => (

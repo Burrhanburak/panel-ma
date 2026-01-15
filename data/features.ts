@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 export interface Feature {
   solutionSlug: string;
   featureSlug: string;
@@ -118,11 +120,22 @@ export const FEATURE_BY_SLUG = new Map<string, Feature>(
   FEATURES.map((f) => [`${f.solutionSlug}/${f.featureSlug}`, f])
 );
 
-export function getFeatureBySlug(solutionSlug: string, featureSlug: string): Feature | undefined {
-  return FEATURE_BY_SLUG.get(`${solutionSlug}/${featureSlug}`);
+export const FEATURES_BY_SOLUTION = new Map<string, Feature[]>();
+for (const feature of FEATURES) {
+  const list = FEATURES_BY_SOLUTION.get(feature.solutionSlug);
+  if (list) {
+    list.push(feature);
+  } else {
+    FEATURES_BY_SOLUTION.set(feature.solutionSlug, [feature]);
+  }
 }
 
-export function getFeaturesBySolutionSlug(solutionSlug: string): Feature[] {
-  return FEATURES.filter((f) => f.solutionSlug === solutionSlug);
-}
+export const getFeatureBySlug = cache(
+  (solutionSlug: string, featureSlug: string): Feature | undefined =>
+    FEATURE_BY_SLUG.get(`${solutionSlug}/${featureSlug}`)
+);
 
+export const getFeaturesBySolutionSlug = cache(
+  (solutionSlug: string): Feature[] =>
+    FEATURES_BY_SOLUTION.get(solutionSlug) ?? []
+);
