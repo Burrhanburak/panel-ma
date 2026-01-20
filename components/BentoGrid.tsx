@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-import Image from "next/image";
 import {
   ShieldCheck,
   LockKeyhole,
@@ -10,9 +6,7 @@ import {
   ServerCog,
   CalendarClock,
   FileText,
-  BadgeCheck,
   Zap,
-  BriefcaseBusiness,
   GraduationCap,
   Building2,
   Users,
@@ -22,16 +16,6 @@ import {
   CreditCardIcon,
 } from "lucide-react";
 import { Logo } from "./Logo";
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
 
 /**
  * Activity feed (workflow events) — keep it realistic + diverse
@@ -77,18 +61,16 @@ const outcomeEvents = [
 
 export default function BentoGrid() {
   return (
-    <section className="bg-black py-8 sm:py-16 lg:py-24 px-2">
-      <motion.div
-        className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-6 sm:grid-cols-1 sm:px-6 md:grid-cols-2 md:gap-7 lg:grid-cols-2 lg:gap-8 lg:px-10 xl:grid-cols-2 2xl:grid-cols-2"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
+    <section
+      className="section-below-fold bg-black py-8 sm:py-16 lg:py-24 px-2"
+      aria-label="Features grid"
+    >
+      <div className="mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-6 sm:grid-cols-1 sm:px-6 md:grid-cols-2 md:gap-7 lg:grid-cols-2 lg:gap-8 lg:px-10 xl:grid-cols-2 2xl:grid-cols-2">
         {/* 1) HERO CARD (gif/video) */}
-        <motion.div
-          variants={cardVariants}
+        <div
           className="bg-card border border-white/5 flex flex-col overflow-hidden rounded-xl pb-6 text-white sm:col-span-2"
+          data-reveal
+          style={{ "--reveal-delay": "0ms" } as React.CSSProperties}
         >
           <div className="group relative flex items-center justify-center overflow-hidden" />
           {/* <Video
@@ -97,14 +79,17 @@ export default function BentoGrid() {
             width={1000}
             height={1000}
           /> */}
-          <div className="flex justify-center items-center w-full ">
+          <div className="flex justify-center items-center w-full">
             <video
               className="w-full max-w-4xl rounded-xl shadow-lg"
               autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
+              poster="/sec-mo.mp4"
+              width={394}
+              height={246}
             >
               <source src="/sec-mo.mp4" type="video/mp4" />
             </video>
@@ -120,12 +105,13 @@ export default function BentoGrid() {
               and approval steps your operation needs.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* 2) ROLE-BASED WORKSPACE + APPROVALS */}
-        <motion.div
-          variants={cardVariants}
+        <div
           className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          data-reveal
+          style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
         >
           <div className="flex h-61.5 flex-1 items-center justify-center">
             <div className="relative w-full max-w-72 space-y-4">
@@ -179,12 +165,13 @@ export default function BentoGrid() {
               system—not scattered across messages and spreadsheets.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* 3) SECURITY / COMPLIANCE */}
-        <motion.div
-          variants={cardVariants}
+        <div
           className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          data-reveal
+          style={{ "--reveal-delay": "160ms" } as React.CSSProperties}
         >
           <div className="flex h-61.5 flex-1 items-center justify-center">
             <div className="relative w-full max-w-72 space-y-4 px-4">
@@ -234,12 +221,13 @@ export default function BentoGrid() {
               traceable with audit logs and approval states.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* 4) MODULES / INDUSTRIES (badges) */}
-        <motion.div
-          variants={cardVariants}
+        <div
           className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl py-6 text-white"
+          data-reveal
+          style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
         >
           <div className="relative flex h-64 items-center justify-center px-6">
             {/* Concentric rings */}
@@ -305,12 +293,13 @@ export default function BentoGrid() {
               process.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* 5) WORKFLOW -> OUTCOMES (marquee) */}
-        <motion.div
-          variants={cardVariants}
+        <div
           className="bg-card border border-white/5 flex flex-col gap-6 overflow-hidden rounded-xl pb-6 text-white"
+          data-reveal
+          style={{ "--reveal-delay": "320ms" } as React.CSSProperties}
         >
           <div className="relative isolate flex min-h-97 flex-1 items-end">
             {/* Top activity marquee */}
@@ -467,8 +456,8 @@ export default function BentoGrid() {
               </p>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

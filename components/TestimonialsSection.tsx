@@ -71,7 +71,7 @@ export function TestimonialsSection() {
     <section
       id="testimonials"
       aria-label="Testimonials"
-      className="w-full flex justify-center px-4 py-20 md:py-28"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28"
     >
       <div className="flex w-full max-w-[1520px] flex-col items-center gap-12 md:gap-20">
         {/* Section title */}
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           <h2 className="text-3xl md:text-4xl font-semibold text-white">
             Teams ship custom panels faster with PanelManage{" "}
           </h2>
-          <p className="text-sm md:text-base text-zinc-400">
+          <p className="text-sm md:text-base text-zinc-300">
             Appointment management systems, clinic dashboards, employee tracking
             systems, scholarship management systems, and psychologist workflows
             — built to match your exact process.

@@ -137,6 +137,41 @@
     box-shadow: inset 0 1px 2px 0 rgb(255 255 255 / 0.2);
   }
 
+  html[data-js="true"] [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 600ms ease, transform 600ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  html[data-js="true"] [data-reveal="in"] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html[data-js="true"] [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @keyframes logo-marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .logo-marquee {
+    animation: logo-marquee 20s linear infinite;
+    will-change: transform;
+  }
+
   @keyframes marquee-vertical {
     0% {
       transform: translateY(0%);
@@ -205,5 +240,17 @@
 
   .footer-texture-scroll {
     animation: footer-texture-scroll 22s linear infinite;
+  }
+
+  /* Performance: content-visibility for long sections */
+  .section-below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+  }
+
+  /* Optimize long lists and grids */
+  section[id] {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
   }
 }

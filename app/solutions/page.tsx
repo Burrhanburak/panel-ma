@@ -100,12 +100,11 @@ export default function SolutionsHub() {
       <main className="mx-auto w-full max-w-[1100px] px-5 py-25 text-white">
         <header className="space-y-3">
           <h1 className="text-3xl md:text-4xl font-semibold">
-            Management Systems We Build
+        Custom Panel Management Systems We Build
           </h1>
           <p className="text-zinc-300">
-            Custom management systems and admin panels built around your
-            workflow — scheduling, approvals, uploads, exports, roles, and
-            reporting.
+       Custom panel management systems built around your workflow — scheduling, approvals,
+uploads, exports, roles, permissions, and reporting.
           </p>
         </header>
 

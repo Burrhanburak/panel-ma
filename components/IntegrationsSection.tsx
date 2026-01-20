@@ -78,7 +78,7 @@ export function PanelsSection() {
     <section
       id="panels"
       aria-label="Custom Panels"
-      className="w-full flex justify-center px-4 py-20 md:py-28"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28"
     >
       <div className="flex w-full max-w-[1520px] flex-col items-center gap-10 md:gap-12">
         {/* Section title */}
@@ -173,7 +173,7 @@ export function PanelsSection() {
                             {panel.title}
                           </h5>
                         </div>
-                        <p className="text-sm text-zinc-400 leading-relaxed">
+                        <p className="text-sm text-zinc-300 leading-relaxed">
                           {panel.description}
                         </p>
                       </div>

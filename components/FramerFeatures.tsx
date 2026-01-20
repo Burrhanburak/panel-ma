@@ -3,7 +3,7 @@ export function Features() {
     <section
       id="features"
       aria-label="Panel Features"
-      className="w-full flex justify-center px-4 py-20 md:py-28"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28"
     >
       <div className="w-full max-w-[1520px] grid gap-12 md:gap-14  lg:gap-16 lg:grid-cols-[320px_1fr] xl:grid-cols-[360px_1fr] items-start">
         {/* Section title */}
@@ -11,7 +11,7 @@ export function Features() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
             Everything your custom panel needs
           </h2>
-          <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
             We don&apos;t ship generic software. We design admin panels,
             dashboards, and workflows tailored to how your business actually
             operates.

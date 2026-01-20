@@ -1,26 +1,22 @@
-"use client";
-
 /* Get started / pull your team in section */
-
-import { motion } from "motion/react";
 
 export function GetStartedSection() {
   return (
     <section
       id="get-started"
       aria-label="Get started"
-      className="w-full flex justify-center px-4 py-20 md:py-28 bg-black shadow-lg shadow-black/20"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28 bg-black shadow-lg shadow-black/20"
     >
-      <motion.div
+      <div
         className="relative flex w-full max-w-[1520px] flex-col items-center gap-5 rounded-[2.5rem] md:rounded-[3rem] px-6 py-16 md:px-12 md:py-24"
-        style={{
-          background:
-            "radial-gradient(59% 60% at 50% 0%,rgb(115, 176, 131) 0%,rgb(0, 0, 0) 100%)",
-        }}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        data-reveal
+        style={
+          {
+            background:
+              "radial-gradient(59% 60% at 50% 0%,rgb(115, 176, 131) 0%,rgb(0, 0, 0) 100%)",
+            "--reveal-delay": "120ms",
+          } as React.CSSProperties
+        }
       >
         {/* Glow effect as soft blob, not border line */}
         <div className="pointer-events-none absolute inset-0  flex items-center justify-center">
@@ -50,7 +46,7 @@ export function GetStartedSection() {
             </a>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

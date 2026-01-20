@@ -13,7 +13,7 @@ export function Faqs() {
     <section
       id="faq"
       aria-label="Frequently Asked Questions"
-      className="w-full flex justify-center px-4 py-20 md:py-28"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28"
     >
       <div className="flex w-full max-w-[1520px] flex-col gap-8 md:flex-row md:gap-6">
         {/* Title column */}
@@ -21,7 +21,7 @@ export function Faqs() {
           <h2 className="text-3xl md:text-4xl font-semibold text-white">
             FAQ about Management System Software
           </h2>
-          <p className="text-sm md:text-base text-zinc-400">
+          <p className="text-sm md:text-base text-zinc-300">
             Quick answers about custom panels, scope, timelines, and
             maintenance.
           </p>

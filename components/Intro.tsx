@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-
 import {
   ShieldCheck,
   Layers,
@@ -55,17 +51,59 @@ export default function Intro() {
         className="intro-section flex flex-col items-center gap-[50px] md:gap-[120px] px-4 md:px-[100px] py-8 md:py-12"
         style={{ height: "min-content" }}
       >
-        {/* Trusted by */}
+        {/* GEO-optimized definition block - SSR for AI/LLM understanding */}
+        <section
+          className="flex flex-col items-center gap-6 w-full max-w-4xl px-6"
+          data-reveal
+        >
+          <div className="prose prose-invert prose-lg max-w-none text-center">
+            <h2 className="text-white text-center text-[20px] md:text-xl font-medium mb-4">
+              What is PanelManage?
+            </h2>
+            <p className="text-white/90 text-sm md:text-base text-center leading-relaxed mb-6">
+              <strong>PanelManage</strong> is a custom panel management system software designed for clinics, HR teams, schools, and growing organizations. We build admin panels with appointment scheduling, patient portals, employee tracking, inventory control, and role-based access—tailored to your exact workflow.
+            </p>
+            <div className="text-left max-w-2xl mx-auto space-y-4">
+              <div>
+                <h3 className="text-white/90 text-base font-semibold mb-2">Best for:</h3>
+                <ul className="text-white/80 text-sm space-y-1 list-disc list-inside">
+                  <li>Clinics and medical practices needing appointment & patient management</li>
+                  <li>HR teams tracking employees, shifts, and performance</li>
+                  <li>Schools and scholarship programs managing applications and workflows</li>
+                  <li>Growing organizations requiring custom admin panels</li>
+                  <li>Teams moving from spreadsheets to structured workflows</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white/90 text-base font-semibold mb-2">Key features:</h3>
+                <ul className="text-white/80 text-sm space-y-1 list-disc list-inside">
+                  <li>Appointment scheduling and calendar management</li>
+                  <li>Role-based access control (RBAC) and permissions</li>
+                  <li>Patient portal and document uploads</li>
+                  <li>Employee tracking, shifts, and attendance</li>
+                  <li>Inventory management and tracking</li>
+                  <li>Workflow approvals and automation</li>
+                  <li>Reporting dashboards and exports</li>
+                  <li>Audit logs and compliance tracking</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white/90 text-base font-semibold mb-2">Pricing model:</h3>
+                <p className="text-white/80 text-sm">
+                  One-time build fee (starting from $2,950). Full ownership of your management system—no monthly subscriptions, no vendor lock-in. Optional maintenance and updates available.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <motion.section
+        {/* Trusted by */}
+        <section
           className="flex flex-col items-center gap-6 w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ type: "spring", duration: 0.6, bounce: 0.05 }}
+          data-reveal
         >
           <h2 className="text-white text-center text-[20px] md:text-xl font-medium">
-            Trusted by Teams Searching “Management System”{" "}
+            Trusted by Teams Searching "Management System"{" "}
           </h2>
 
           <p className="text-white/80 text-[12px] m-2 md:text-lg text-center w-full md:max-w-[700px] leading-[1.5] md:leading-relaxed px-6 md:px-0">
@@ -111,20 +149,10 @@ export default function Intro() {
                 style={{
                   overflow: "hidden",
                 }}
-              >
-                <motion.ul
-                  className="logos-list flex items-center w-full h-full max-w-full max-h-full list-none gap-[60px] relative flex-row"
-                  initial={{ x: 0 }}
-                  animate={{ x: [0, "-50%", 0] }}
-                  transition={{
-                    duration: 20,
-
-                    repeat: Infinity,
-
-                    ease: "linear",
-                  }}
+                >
+                <ul
+                  className="logos-list logo-marquee flex items-center w-full h-full max-w-full max-h-full list-none gap-[60px] relative flex-row"
                   aria-label="Company logos"
-                  style={{ willChange: "transform" }}
                 >
                   {[...logos, ...logos].map((item, i) => {
                     const Icon = item.icon;
@@ -150,7 +178,7 @@ export default function Intro() {
                       </li>
                     );
                   })}
-                </motion.ul>
+                </ul>
 
                 <style
                   dangerouslySetInnerHTML={{
@@ -178,7 +206,7 @@ export default function Intro() {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Main */}
 

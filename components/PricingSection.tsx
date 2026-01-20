@@ -55,7 +55,7 @@ export function PricingSection() {
     <section
       id="pricing"
       aria-label="Pricing"
-      className="w-full flex justify-center px-4 py-20 md:py-28"
+      className="section-below-fold w-full flex justify-center px-4 py-20 md:py-28"
     >
       <div className="flex w-full max-w-[1520px] flex-col items-center gap-10">
         {/* Section title */}
@@ -72,7 +72,7 @@ export function PricingSection() {
               <TrendingUp className="size-4" />
             </Link>
           </div>
-          <p className="text-sm md:text-base text-zinc-400">
+          <p className="text-sm md:text-base text-zinc-300">
             Choose the plan that matches your workflow — no hidden fees, no
             surprises.
           </p>

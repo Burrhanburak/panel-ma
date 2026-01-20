@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { motion } from "motion/react";
 
 type AnimatedBadgeProps = {
   text?: string;
@@ -33,21 +32,7 @@ export const AnimatedBadge = ({
   href,
 }: AnimatedBadgeProps) => {
   const content = (
-    <motion.div
-      initial={false}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-      }}
-      transition={{
-        duration: 0.3,
-        delay: 0.1,
-        ease: "easeInOut",
-      }}
-      viewport={{ once: true }}
-      className="group relative flex max-w-fit items-center justify-center gap-3 rounded-full border border-white/10 bg-black px-4 py-1.5 text-white transition-colors dark:border-neutral-700/80 dark:bg-black dark:text-zinc-300"
-    >
+    <div className="group relative flex max-w-fit items-center justify-center gap-3 rounded-full border border-white/10 bg-black px-4 py-1.5 text-white transition-colors dark:border-neutral-700/80 dark:bg-black dark:text-zinc-300">
       <div className="pointer-events-none absolute inset-x-0 bottom-full h-20 w-[165px]">
         <svg
           className="h-full w-full"
@@ -105,7 +90,7 @@ export const AnimatedBadge = ({
       <div className="mx-2 h-4 w-px bg-neutral-300 dark:bg-neutral-600/80" />
       <span className="bg-clip-text text-xs font-medium">{text}</span>
       <ChevronRight className="ml-1 h-3.5 w-3.5 text-neutral-400 transition-transform duration-200 group-hover:translate-x-0.5 dark:text-neutral-500" />
-    </motion.div>
+    </div>
   );
   return (
     <>
