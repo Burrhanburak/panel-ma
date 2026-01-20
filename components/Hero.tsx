@@ -72,8 +72,8 @@ const SyntheticHero = ({
 
   useEffect(() => {
     let isActive = true;
-    let split: { revert: () => void } | null = null;
-    let timeline: { kill: () => void } | null = null;
+    let split: { revert: () => void; lines?: Element[] } | null = null;
+    let timeline: { kill: () => void; to: (...args: any[]) => any } | null = null;
 
     const runAnimation = async () => {
       if (!headingRef.current) return;
@@ -95,15 +95,17 @@ const SyntheticHero = ({
       split = new SplitText(headingRef.current, {
         type: "lines",
         wordsClass: "hero-lines",
-      });
+      }) as unknown as { revert: () => void; lines?: Element[] };
 
-      gsap.set(split.lines, {
-        filter: "blur(16px)",
-        yPercent: 24,
-        autoAlpha: 0,
-        scale: 1.04,
-        transformOrigin: "50% 100%",
-      });
+      if (split.lines) {
+        gsap.set(split.lines, {
+          filter: "blur(16px)",
+          yPercent: 24,
+          autoAlpha: 0,
+          scale: 1.04,
+          transformOrigin: "50% 100%",
+        });
+      }
 
       if (badgeWrapperRef.current) {
         gsap.set(badgeWrapperRef.current, { autoAlpha: 0, y: -8 });
@@ -125,7 +127,7 @@ const SyntheticHero = ({
         gsap.set(microItems, { autoAlpha: 0, y: 6 });
       }
 
-      timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+      timeline = gsap.timeline({ defaults: { ease: "power3.out" } }) as { kill: () => void; to: (...args: any[]) => any };
 
       if (badgeWrapperRef.current) {
         timeline.to(
@@ -135,18 +137,20 @@ const SyntheticHero = ({
         );
       }
 
-      timeline.to(
-        split.lines,
-        {
-          filter: "blur(0px)",
-          yPercent: 0,
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.9,
-          stagger: 0.12,
-        },
-        0.1
-      );
+      if (split.lines) {
+        timeline.to(
+          split.lines,
+          {
+            filter: "blur(0px)",
+            yPercent: 0,
+            autoAlpha: 1,
+            scale: 1,
+            duration: 0.9,
+            stagger: 0.12,
+          },
+          0.1
+        );
+      }
 
       if (paragraphRef.current) {
         timeline.to(
