@@ -26,11 +26,11 @@ import { createMetadata } from "@/lib/metadata";
 import { PageJsonLd } from "@/components/PageJsonLd";
 
 export const metadata: Metadata = createMetadata({
-  title: "Management Systems We Build",
+  title: "Custom Management Systems We Build | Bespoke Admin Panels",
   description:
-    "Custom management systems and admin panels built around your workflow — scheduling, approvals, uploads, exports, roles, and reporting. Appointment, clinic, employee, scholarship, and practice management systems.",
+    "Skip the SaaS limits. Get a custom-built management system designed around how your team actually works—scheduling, approvals, uploads, exports, roles, and reporting.",
   keywords:
-    "content management system, employee management system, project management system, custom management system, crm management system, clinic management system, practice management system, hr management system, inventory management system, patient management system, maintenance management system, document management system, vendor management system, property management system, school management system, appointment management system, workflow management system, case management system, admin panel software, custom dashboard, Laravel admin panel",
+    "custom panel management system, bespoke admin panel, custom software development, workflow approvals, role based access, clinic management system, hr management system, school management system, appointment management system",
   url: "https://panelmanage.com/solutions",
   datePublished: "2025-01-15T00:00:00Z",
   dateModified: new Date().toISOString(),
@@ -86,25 +86,40 @@ export default function SolutionsHub() {
   return (
     <>
       <PageJsonLd
-        title="Management Systems We Build"
-        description="Custom management systems and admin panels built around your workflow — scheduling, approvals, uploads, exports, roles, and reporting. Appointment, clinic, employee, scholarship, and practice management systems."
+        title="Custom Panel Management Systems We Build"
+        description="Explore custom panel management systems built around your workflow — scheduling, approvals, uploads, exports, roles, permissions, and reporting. Appointment, clinic, HR, school, case, workflow, inventory, and more."
         url="https://panelmanage.com/solutions"
         datePublished="2025-01-15T00:00:00Z"
-        dateModified={new Date().toISOString()}
+        dateModified="2025-01-20T00:00:00Z"
         type="CollectionPage"
         breadcrumbs={[
           { name: "Home", item: "https://panelmanage.com" },
           { name: "Solutions", item: "https://panelmanage.com/solutions" },
         ]}
       />
+      {/* ItemList schema for hub page - GEO/AI optimization */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: SOLUTIONS_ALL.map((s, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: s.h1,
+              url: `https://panelmanage.com/solutions/${s.slug}`,
+            })),
+          }),
+        }}
+      />
       <main className="mx-auto w-full max-w-[1100px] px-5 py-25 text-white">
         <header className="space-y-3">
           <h1 className="text-3xl md:text-4xl font-semibold">
-        Custom Panel Management Systems We Build
+            Custom Management Systems Built for Your Workflow
           </h1>
-          <p className="text-zinc-300">
-       Custom panel management systems built around your workflow — scheduling, approvals,
-uploads, exports, roles, permissions, and reporting.
+          <p className="text-zinc-300 text-lg">
+            Skip the SaaS limits. Get a custom-built management system designed around how your team actually works—scheduling, approvals, uploads, exports, roles, and reporting.
           </p>
         </header>
 
@@ -121,7 +136,11 @@ uploads, exports, roles, permissions, and reporting.
                 </span>
                 <h2 className="text-lg font-semibold">{s.pageName}</h2>
               </div>
-              <p className="text-sm text-zinc-300">{s.metaDescription}</p>
+              <p className="text-sm text-zinc-300 line-clamp-2">
+                {s.metaDescription.length > 120
+                  ? `${s.metaDescription.substring(0, 120)}...`
+                  : s.metaDescription}
+              </p>
               <div className="flex items-center gap-2 text-sm">
                 {/* <span className="text-[#94989]  font-bold">{s.keyword}</span> */}
               </div>

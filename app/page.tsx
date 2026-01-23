@@ -49,8 +49,8 @@ export default function Home() {
         }))}
       />
       <Hero
-        title="Custom Panel Management Systems Built Around Your Workflow"
-        description="PanelManage builds custom panel management systems for clinics, HR teams, schools, and internal operations — scheduling, approvals, uploads, exports, roles, and reporting."
+        title="Custom Management Systems—Not SaaS, Not Templates"
+        description="PanelManage builds custom management systems for clinics, HR teams, schools, and internal operations. No per-seat fees, no SaaS limits—just software built exactly for how you work."
         badgeText="60+ Management Systems"
         badgeLabel="Management System Software"
         ctaButtons={[

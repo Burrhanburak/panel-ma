@@ -260,7 +260,7 @@ const SyntheticHero = ({
         {/* Image container */}
         <div
           ref={imageRef}
-          className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20"
+          className="relative  mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20"
         >
           <div className="inset-shadow-2xs relative w-full">
             {/* Neon glow effect - outer */}
@@ -294,7 +294,7 @@ const SyntheticHero = ({
                   height={700}
                 />
               </div>
-              <div className="relative -mr-56 mt-1 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+              <div className="relative  mt-1 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
                 <Image
                   className="bg-background relative rounded-2xl w-full block dark:bg-background dark:border-0"
                   src="/panel-managez.png"

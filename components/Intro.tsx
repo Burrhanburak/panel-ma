@@ -58,10 +58,10 @@ export default function Intro() {
         >
           <div className="prose prose-invert prose-lg max-w-none text-center">
             <h2 className="text-white text-center text-[20px] md:text-xl font-medium mb-4">
-              What is PanelManage?
+              What is a Custom Panel Management System?
             </h2>
             <p className="text-white/90 text-sm md:text-base text-center leading-relaxed mb-6">
-              <strong>PanelManage</strong> is a custom panel management system software designed for clinics, HR teams, schools, and growing organizations. We build admin panels with appointment scheduling, patient portals, employee tracking, inventory control, and role-based access—tailored to your exact workflow.
+              A <strong>Custom Panel Management System</strong> is specialized software built to match your exact workflow—unlike generic SaaS that forces you to adapt. We replace spreadsheets and scattered tools with a unified admin panel for appointments, staff, approvals, role-based access, and reporting.
             </p>
             <div className="text-left max-w-2xl mx-auto space-y-4">
               <div>

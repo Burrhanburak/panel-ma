@@ -34,12 +34,13 @@ export const BRAND = {
   name: "PanelManage",
   url: "https://panelmanage.com",
   logo: "https://panelmanage.com/logo.png",
+  buildTime: process.env.NEXT_PUBLIC_BUILD_TIME,
 };
 
 export const BASE_FAQS: FAQ[] = [
   {
     q: "Is this a ready-made SaaS or custom-built?",
-    a: "It’s custom-built. We design modules, roles, and workflows around how your team works, then deliver a production-ready management system.",
+    a: "It's custom-built. We design modules, roles, and workflows around how your team works, then deliver a production-ready management system.",
   },
   {
     q: "How long does it take to build?",
@@ -61,7 +62,28 @@ export const BASE_FAQS: FAQ[] = [
     q: "Can we integrate with other tools?",
     a: "Yes. Calendars, messaging, spreadsheets, and automation hooks for reminders, approvals, and reporting can be added.",
   },
+  {
+    q: "Can this system be adapted to different programs or workflows?",
+    a: "Yes. Workflows, logic, forms, and approval processes are fully customizable and can be tailored to each program's specific requirements.",
+  },
 ];
+
+// Reusable "Why Custom?" section for all solutions
+export const WHY_CUSTOM_SECTION: Section = {
+  h2: "Why Custom Instead of Ready-Made Software",
+  blocks: [
+    {
+      type: "ul",
+      items: [
+        "No limits on workflow logic or business rules",
+        "Custom roles for your team structure",
+        "Full ownership of your data and processes",
+        "Easy extensions for future programs",
+        "No per-seat subscription fees",
+      ],
+    },
+  ],
+};
 
 export function buildFaqs(extra?: FAQ[]) {
   return [...(extra || []), ...BASE_FAQS];
@@ -77,9 +99,9 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Appointment Management System | PanelManage",
     metaDescription:
       "Custom appointment management system with scheduling, approvals, reminders, roles, uploads, exports, and workflow modules.",
-    h1: "Appointment Management System",
+    h1: "Custom Appointment Management System",
     intro:
-      "We build custom appointment management systems that fit your workflow — scheduling, approvals, reminders, and reporting in one place.",
+      "Replace spreadsheets and fragmented tools with a custom-built appointment management system that adapts to your scheduling logic, approval process, and reporting needs.",
     datePublished: PUBLISHED,
     tags: ["scheduling", "healthcare", "operations", "workflow"],
     seoKeywords: [
@@ -96,7 +118,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Appointment System Is For",
         blocks: [
           {
             type: "ul",
@@ -126,7 +148,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Appointment Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -190,9 +212,9 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Clinic Management System | PanelManage",
     metaDescription:
       "Custom clinic management system for appointments, staff, patient workflows, permissions, uploads, reporting, and approvals.",
-    h1: "Clinic Management System",
+    h1: "Custom Clinic Management System",
     intro:
-      "Run clinic operations with a custom management system that centralizes schedules, staff workflows, patient records, and reporting.",
+      "Replace fragmented systems with a custom-built clinic management system that adapts to your patient workflows, staff roles, and operational processes.",
     datePublished: PUBLISHED,
     tags: ["healthcare", "operations", "workflow"],
     seoKeywords: [
@@ -209,7 +231,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Clinic System Is For",
         blocks: [
           {
             type: "ul",
@@ -239,7 +261,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Clinic Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -300,9 +322,9 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Employee Management System | PanelManage",
     metaDescription:
       "Custom employee management system for shifts, tasks, approvals, timesheets, exports, and role-based access.",
-    h1: "Employee Management System",
+    h1: "Custom Employee Management System",
     intro:
-      "Track shifts, tasks, approvals, and exports with a custom employee management system built around your workforce operations.",
+      "Replace spreadsheets and disconnected tools with a custom-built employee management system that adapts to your shift planning, task workflows, and approval structure.",
     datePublished: PUBLISHED,
     tags: ["workforce", "operations", "workflow"],
     seoKeywords: [
@@ -317,7 +339,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Employee System Is For",
         blocks: [
           {
             type: "ul",
@@ -347,7 +369,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Employee Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -384,9 +406,9 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Scholarship Management System | PanelManage",
     metaDescription:
       "Custom scholarship management system for applications, document uploads, scoring, approvals, and reporting.",
-    h1: "Scholarship Management System",
+    h1: "Custom Scholarship Management System",
     intro:
-      "Replace email chains with a scholarship management system that handles applications, uploads, scoring, approvals, and visibility.",
+      "Replace spreadsheets, emails, and disconnected tools with a custom-built scholarship management system that adapts to your review process, scoring logic, and approval structure.",
     datePublished: PUBLISHED,
     tags: ["education", "workflow", "operations"],
     seoKeywords: [
@@ -401,7 +423,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Scholarship System Is For",
         blocks: [
           {
             type: "ul",
@@ -431,7 +453,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Scholarship Review Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -468,14 +490,14 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "School Management System | PanelManage",
     metaDescription:
       "Custom school management system for admissions, student records, staff workflows, document uploads, approvals, and reporting.",
-    h1: "School Management System",
+    h1: "Custom School Management System",
     intro:
-      "A school management system built around your workflows — admissions, records, staff roles, approvals, and reporting in one place.",
+      "Skip SaaS limits. Build a custom school management system designed around your admissions, records, staff roles, approvals, and reporting needs.",
     datePublished: PUBLISHED,
     tags: ["education", "operations", "workflow"],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom School System Is For",
         blocks: [
           {
             type: "ul",
@@ -505,7 +527,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical School Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -543,9 +565,9 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Practice Management System | PanelManage",
     metaDescription:
       "Custom practice management system for scheduling, staff workflows, uploads, reporting, and approvals.",
-    h1: "Practice Management System",
+    h1: "Custom Practice Management System",
     intro:
-      "A practice management system that matches your roles, approvals, and operational steps — built as a custom panel.",
+      "Skip generic SaaS tools. Build a custom practice management system that adapts to your roles, approvals, and operational steps.",
     datePublished: PUBLISHED,
     tags: ["operations", "workflow"],
     seoKeywords: [
@@ -560,7 +582,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Practice System Is For",
         blocks: [
           {
             type: "ul",
@@ -590,7 +612,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Practice Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -628,14 +650,14 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Workflow Management System | PanelManage",
     metaDescription:
       "Custom workflow management system with roles, approvals, automation hooks, uploads, exports, and dashboards.",
-    h1: "Workflow Management System",
+    h1: "Custom Workflow Management System",
     intro:
-      "Bring structure to complex operations with a workflow management system built to match your states, roles, approvals, and reporting needs.",
+      "Bring structure to complex operations with a custom-built workflow management system designed around your states, roles, approvals, and reporting needs.",
     datePublished: PUBLISHED,
     tags: ["workflow", "operations", "automation"],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Workflow System Is For",
         blocks: [
           {
             type: "ul",
@@ -665,7 +687,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Workflow Process (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -719,14 +741,14 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Case Management System | PanelManage",
     metaDescription:
       "Custom case management system for intake, documents, approvals, timelines, tasks, and reporting.",
-    h1: "Case Management System",
+    h1: "Custom Case Management System",
     intro:
       "Manage intake, documents, tasks, and approvals with a case management system built to match your team’s case lifecycle.",
     datePublished: PUBLISHED,
     tags: ["workflow", "operations", "compliance"],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Case System Is For",
         blocks: [
           {
             type: "ul",
@@ -756,7 +778,7 @@ export const SOLUTIONS: Solution[] = [
         ],
       },
       {
-        h2: "Typical workflow",
+        h2: "Typical Case Workflow (Customizable)",
         blocks: [
           {
             type: "steps",
@@ -810,14 +832,14 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Admin Panel Software | PanelManage",
     metaDescription:
       "Custom admin panel software for internal operations: tables, forms, actions, uploads, approvals, RBAC, and reporting dashboards.",
-    h1: "Admin Panel Software",
+    h1: "Custom Admin Panel Software",
     intro:
-      "We build admin panel software for internal operations — custom modules, roles, approvals, uploads, exports, and reporting dashboards.",
+      "Skip generic templates. Build custom admin panel software designed around your internal operations—modules, roles, approvals, uploads, exports, and reporting dashboards.",
     datePublished: PUBLISHED,
     tags: ["platform", "operations", "workflow"],
     sections: [
       {
-        h2: "Who this is for",
+        h2: "Who This Custom Admin Panel Is For",
         blocks: [
           {
             type: "ul",
@@ -1159,7 +1181,7 @@ export const SOLUTIONS: Solution[] = [
     seoTitle: "Teacher Management System | PanelManage",
     metaDescription:
       "Custom teacher management system for schedules, assignments, approvals, uploads, and reporting.",
-    h1: "Teacher Management System",
+    h1: "Custom Teacher Management System",
     intro:
       "Coordinate schedules, approvals, and reporting with a teacher management system built around your school’s operations.",
     datePublished: PUBLISHED,
@@ -1823,7 +1845,60 @@ export const MORE_SOLUTIONS: Solution[] = [
   },
 ];
 
-export const SOLUTIONS_ALL: Solution[] = [...SOLUTIONS, ...MORE_SOLUTIONS];
+export const SOLUTIONS_ALL: Solution[] = [...SOLUTIONS, ...MORE_SOLUTIONS].map(
+  (s) => {
+    // 1. Ensure H1 has "Custom" prefix
+    let h1 = s.h1;
+    if (!h1.startsWith("Custom ")) {
+      h1 = `Custom ${h1}`;
+    }
+
+    // Helper for "System" name (e.g. Appointment Management System -> Appointment System)
+    const shortName = s.pageName
+      .replace("Management System", "System")
+      .replace("Management Software", "System")
+      .replace("Software", "System")
+      .replace("  ", " "); // cleanup double spaces
+
+    // 2. Transform sections
+    const sections = s.sections.map((sec) => {
+      // Improve "Who this is for" title with Custom + Short Name
+      if (sec.h2.toLowerCase().includes("who this is for")) {
+        return {
+          ...sec,
+          h2: `Who This Custom ${shortName} Is For`,
+        };
+      }
+      // Improve "Typical workflow" title
+      if (sec.h2.toLowerCase().includes("typical workflow")) {
+        return {
+          ...sec,
+          h2: `Typical Workflow (Customizable)`,
+        };
+      }
+      return sec;
+    });
+
+    // 3. Insert "Why Custom?" section
+    const newSections = [...sections];
+    // Find index of "Who this is for" section to insert after it
+    const whoIndex = newSections.findIndex((sec) =>
+      sec.h2.includes("Who This Custom")
+    );
+    const insertIndex = whoIndex !== -1 ? whoIndex + 1 : 0;
+
+    // Avoid duplicates if already added manually
+    if (!newSections.some((sec) => sec.h2.includes("Why Custom Instead"))) {
+      newSections.splice(insertIndex, 0, WHY_CUSTOM_SECTION);
+    }
+
+    return {
+      ...s,
+      h1,
+      sections: newSections,
+    };
+  }
+);
 export const SOLUTION_BY_SLUG = new Map(SOLUTIONS_ALL.map((s) => [s.slug, s]));
 
 export const getSolutionBySlug = cache((slug: string) =>

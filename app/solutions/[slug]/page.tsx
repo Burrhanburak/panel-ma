@@ -367,6 +367,9 @@ export default async function SolutionPage({
               <h1 className="text-3xl md:text-4xl font-semibold">
                 {solution.h1}
               </h1>
+              <p className="text-lg text-zinc-400 font-medium">
+                Designed for teams that need flexible workflows—not rigid SaaS limits.
+              </p>
               <p className="text-zinc-300">{solution.intro}</p>
               <div className="flex flex-wrap gap-2 pt-2 text-sm">
                 <Link className="underline text-zinc-300" href="/solutions">
@@ -404,7 +407,7 @@ export default async function SolutionPage({
 
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-white">
-              Related management systems
+              Related Custom Management Systems
             </h2>
             <div className="flex flex-wrap gap-2">
               {related.map((r) => (
@@ -518,11 +521,10 @@ export default async function SolutionPage({
             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="space-y-1">
                 <p className="text-sm font-semibold text-white">
-                  Ready to scope your panel?
+                  Get a Custom {solution.pageName} Quote
                 </p>
                 <p className="text-sm text-zinc-300">
-                  See pricing options or book a quick demo to align on modules
-                  and timeline.
+                  We&apos;ll map your workflow and modules before pricing. No spam, no pressure.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -530,7 +532,7 @@ export default async function SolutionPage({
                   className="rounded-lg bg-white text-black px-4 py-2 text-sm font-medium shadow-sm hover:brightness-95 transition"
                   href="/pricing"
                 >
-                  View pricing
+                  Get Custom Quote
                 </Link>
                 <Link
                   className="rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10 transition"
